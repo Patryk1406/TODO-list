@@ -1,0 +1,92 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Light", sans-serif;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+h1.main-title {
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section.todolist, section.add-new-task {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+
+div.task {
+    display: flex;
+    flex-basis: 100%;
+}
+
+section.todolist p {
+    border: 1px black solid;
+    padding: 10px;
+}
+
+p.description {
+    flex-basis: 70%;
+    background-color: royalblue;
+    text-align: center;
+}
+
+p.change, p.delete {
+    flex-basis: 15%;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+p.change {
+    background-color: #e77272;
+}
+
+p.change.done {
+    background-color: lightgreen;
+}
+
+p.change.done:hover {
+    background-color: green;
+}
+
+p.delete {
+    background-color: #ee3939;
+}
+
+p.change:hover {
+    background-color: firebrick;
+}
+
+p.delete:hover {
+    background-color: #e77272;
+}
+
+textarea.description-new-task {
+    flex-basis: 70%;
+    font-size: 20px;
+}
+
+button.add-new-task-button {
+    width: 30%;
+    padding: 10px;
+    background-color: mediumvioletred;
+    border: 1px black solid;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button.add-new-task-button:hover {
+    background-color: #570a3d;
+    color: white;
+}

@@ -1,0 +1,18 @@
+<h1 class="main-title">Your to-do list</h1>
+<section class="todolist">
+    {{#each tasks}}
+        <div class="task">
+        <p class="description">{{this.description}}</p>
+        {{#if this.status}}
+            <p class="change done" data-id="{{this.id}}">done</p>
+        {{else}}
+            <p class="change" data-id="{{this.id}}">not done</p>
+        {{/if}}
+        <p class="delete" data-id="{{this.id}}">delete</p>
+        </div>
+    {{/each}}
+</section>
+<section class="add-new-task">
+    <textarea class="description-new-task" placeholder="task description"></textarea>
+    <button class="add-new-task-button">Add a new task to your list</button>
+</section>
