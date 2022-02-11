@@ -18,8 +18,12 @@ todoListRouter
     })
     .patch('/:id', async (req, res) => {
         const task = await gettingTaskFromRequest(req);
-        task.status = task.status ? 0 : 1;
-        task.description = req.body.description;
+        if (req.body.description) {
+            task.description = req.body.description.trim();
+        }
+        else {
+            task.status = task.status ? 0 : 1;
+        }
         await task.update();
         res.status(200).send();
     })

@@ -23,27 +23,34 @@ section.todolist, section.add-new-task {
     margin: 20px auto;
 }
 
+section.add-new-task {
+    border: 2px black solid;
+}
+
 div.task {
     display: flex;
     flex-basis: 100%;
 }
 
-section.todolist p {
+div.task p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px black solid;
     padding: 10px;
+    text-align: center;
 }
 
 p.description {
-    flex-basis: 70%;
+    flex-basis: 60%;
     background-color: royalblue;
-    text-align: center;
 }
 
-p.change, p.delete {
-    flex-basis: 15%;
-    text-align: center;
+p.change, p.delete, p.edit {
+    flex-basis: 13.33%;
     text-transform: uppercase;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 p.change {
@@ -54,25 +61,35 @@ p.change.done {
     background-color: lightgreen;
 }
 
-p.change.done:hover {
-    background-color: green;
+p.edit {
+    background-color: forestgreen;
+}
+
+p.change:hover, p.delete:hover, p.edit:hover {
+    opacity: 80%;
 }
 
 p.delete {
     background-color: #ee3939;
-}
-
-p.change:hover {
-    background-color: firebrick;
+    transition: 0.2s;
 }
 
 p.delete:hover {
-    background-color: #e77272;
+    background-color: red;
 }
 
-textarea.description-new-task {
-    flex-basis: 70%;
+section.add-new-task textarea, section.todolist textarea {
     font-size: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+section.add-new-task textarea {
+    flex-basis: 70%;
+}
+
+section.todolist textarea {
+    flex-basis: 60%;
 }
 
 button.add-new-task-button {
@@ -89,4 +106,48 @@ button.add-new-task-button {
 button.add-new-task-button:hover {
     background-color: #570a3d;
     color: white;
+}
+
+/*error-view*/
+div.obscure {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    /*opacity: 80%;*/
+}
+
+div.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    background-color: darkred;
+    text-align: center;
+}
+
+dv.error p {
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+}
+
+div.exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background-color: grey;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
 }

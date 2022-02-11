@@ -1,4 +1,5 @@
 import * as express from "express";
+import 'express-async-errors';
 import {engine} from "express-handlebars";
 import {homeRouter} from "./routes/home";
 import {todoListRouter} from "./routes/todo-list";
@@ -7,8 +8,11 @@ import {handleError} from "./utils/errors";
 
 const app = express();
 
-app.engine('.hbs', engine({extname: '.hbs'}));
+app.engine('.hbs', engine({
+    extname: '.hbs',
+}));
 app.set('view engine', '.hbs');
+
 app.use(express.static('./public'))
 app.use(express.json());
 
