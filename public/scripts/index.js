@@ -106,8 +106,8 @@ async function updateRequestSend(btn) {
 }
 
 function updateStatusOfTask() {
-    const changeStatusButtons = document.querySelectorAll('.change');
-    changeStatusButtons.forEach(
+    const changeStatusBtns = document.querySelectorAll('.change');
+    changeStatusBtns.forEach(
         btn => btn.addEventListener('click', () => updateRequestSend(btn))
     );
 }
@@ -129,9 +129,9 @@ async function deleteRequestSend(btn) {
 }
 
 function deleteTask() {
-    const deleteButtons = document.querySelectorAll('.delete');
+    const deleteBtns = document.querySelectorAll('.delete');
 
-    deleteButtons.forEach(
+    deleteBtns.forEach(
         btn => btn.addEventListener('click', () => deleteRequestSend(btn))
     );
 }
@@ -141,11 +141,11 @@ deleteTask();
 //INSERT A NEW TASK
 
 function insertTask() {
-    const addButton = document.querySelector('.add-new-task-button');
+    const addBtn = document.querySelector('.add-new-task-button');
     const description = document.querySelector('section.add-new-task>textarea');
     const todoListSection = document.querySelector('.todolist')
 
-    addButton.addEventListener('click', async () => {
+    addBtn.addEventListener('click', async () => {
         const descriptionValue = description.value;
         const descriptionToSend = JSON.stringify({description: descriptionValue,});
         const res = await fetch('/todoList', {
@@ -155,7 +155,8 @@ function insertTask() {
             },
             body: descriptionToSend,
         })
-        if (res.status === 201) {
+        if (res
+            .status === 201) {
             const taskContainer = document.createElement('div');
             taskContainer.classList.add('task');
             const descriptionContainer = createPElementAddClassAndText('description', descriptionValue);
